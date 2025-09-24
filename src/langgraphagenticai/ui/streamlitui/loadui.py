@@ -7,14 +7,11 @@ class LoadStreamlitUI:
     def __init__(self):
         self.config=Config()
         self.user_controls={}
-
     def load_streamlit_ui(self):
         st.set_page_config(page_title= "🤖 " + self.config.get_page_title(), layout="wide")
         st.header("🤖 " + self.config.get_page_title())
-        st.session_state.timeframe = ''
+        st.session_state.timeframe = ""
         st.session_state.IsFetchButtonClicked = False
-
-
         with st.sidebar:
             # Get options from config
             llm_options = self.config.get_llm_options()
@@ -34,17 +31,14 @@ class LoadStreamlitUI:
             
             ## USecase selection
             self.user_controls["selected_usecase"]=st.selectbox("Select Usecases",usecase_options)
-
-            if self.user_controls["selected_usecase"] =="Chatbot With Web" or self.user_controls["selected_usecase"] =="AI News" :
-                os.environ["TAVILY_API_KEY"]=self.user_controls["TAVILY_API_KEY"]=st.session_state["TAVILY_API_KEY"]=st.text_input("TAVILY API KEY",type="password")
-
-                # Validate API key
+            if self.user_controls["selected_usecase"] == "Chatbot with web" or self.user_controls["selected_usecase"] == "AI News Summarizer":
+                os.environ["TAVILY_API_KEY"]= self.user_controls["TAVILY_API_KEY"]=st.session_state["TAVILY_API_KEY"]=st.text_input("Tavily Key",type="password")
                 if not self.user_controls["TAVILY_API_KEY"]:
-                    st.warning("⚠️ Please enter your TAVILY_API_KEY key to proceed. Don't have? refer : https://app.tavily.com/home")
+                    st.warning("⚠️ Please enter your Tavily Api  key to proceed. Don't have? refer : https://app.tavily.com/home")
 
-            if self.user_controls['selected_usecase']==" AI News Summarizer":
+            if self.user_controls["selected_usecase"] == "AI News Summarizer":
                 st.subheader("📰 AI News Explorer ")
-                
+
                 with st.sidebar:
                     time_frame = st.selectbox(
                         "📅 Select Time Frame",
@@ -52,8 +46,12 @@ class LoadStreamlitUI:
                         index=0
                     )
                 if st.button("🔍 Fetch Latest AI News", use_container_width=True):
-                    st.session_state.IsFetchButtonClicked = True
+                    st.session_state.IsFetchButtonClicked = True #for running the workflow even if this button is clicked rather than the type msg
                     st.session_state.timeframe = time_frame
 
 
+
+
+
         return self.user_controls
+
