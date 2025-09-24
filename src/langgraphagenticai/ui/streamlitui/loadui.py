@@ -42,7 +42,7 @@ class LoadStreamlitUI:
                 if not self.user_controls["TAVILY_API_KEY"]:
                     st.warning("⚠️ Please enter your TAVILY_API_KEY key to proceed. Don't have? refer : https://app.tavily.com/home")
 
-            if self.user_controls['selected_usecase']=="AI News":
+            if self.user_controls['selected_usecase']==" AI News Summarizer":
                 st.subheader("📰 AI News Explorer ")
                 
                 with st.sidebar:
