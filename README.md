@@ -4,8 +4,6 @@ This project is an **end-to-end Agentic AI chatbot framework** built with **Lang
 It demonstrates how to design **stateful AI agents** capable of multiple use cases such as:
 
 - ✅ **AI News Summarizer** – fetch and summarize the latest AI-related news from trusted sources (Daily, Weekly, Monthly).
-- ✅ **Basic Chatbot** – a conversational agent with memory.
-- ✅ **Chatbot with Web Search** – an agent that uses external tools (Tavily Search) to enhance responses.
 
 The app provides an **interactive Streamlit UI**, integrates with **Groq LLMs** for fast inference, and persists summaries to Markdown files for later review.
 
